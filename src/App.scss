@@ -1,0 +1,112 @@
+body {
+  font-family: 'Pacifico';
+}
+.App {
+  text-align: center;
+}
+
+.app-background {
+  height: 100%;
+  width: 100%;
+}
+
+.gradient-background {
+  background: #ff8b1b; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #ff8b1b, #ffb800); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #ff8b1b, #ffb800); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #ff8b1b, #ffb800); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #ff8b1b, #ffb800); /* Standard syntax */
+}
+
+.back-button {
+  display: block;
+  color: white;
+  background: orange url('./resources/svg-single/001__arrow_left.svg') no-repeat center;
+  background-size: 100%;
+  padding: 50px;
+  transition: padding .5s;
+}.back-button:hover {padding: 55px;}
+
+.content-wrapper {
+  margin: 20px auto;
+  width: 50%;
+  color: white;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: height 2s;
+}
+
+.menu-button-main {
+  padding: 10px 20px;
+  margin: 20px 0;
+  width: 80%;
+  height: 50px;
+  text-align: center;
+  color: white;
+  background: orange;
+  border: 1px solid white;
+  -webkit-transition: background .5s, width .5s;
+} .menu-button-main:hover {
+  background: rgba(255, 255, 255, 0.5);
+  width: 85%;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  min-height: 50px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+
+}
+
+.header-content {
+  align-self: flex-start;
+
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* NAVBAR */
+.navbar-wrapper {
+  bottom: 0;
+  background-color: black;
+  width: 100vw;
+  height: 100px;
+}
+
+.app-navbar {
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  text-align: center
+}
+.nav-button{
+  color: #6d6d6d;
+  background-size: 100%;
+  background: black url('./resources/svg-single/001__arrow_left.svg') no-repeat center;
+  flex-grow: 1;
+  width: 23%;
+  border: 1px solid #6d6d6d;
+}
