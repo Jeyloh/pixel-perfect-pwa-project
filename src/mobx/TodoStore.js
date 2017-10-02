@@ -1,6 +1,5 @@
-import React from 'react';
-import { autorun, observable } from 'mobx/lib/mobx'
-import { observer, computed, autorun } from 'mobx-react';  // not work
+import { autorun, observable } from 'mobx'
+// import { observer } from 'mobx-react';  // not work
 
 class TodoStore {
   @observable todos = ['buy milk', 'buy eggs'];
