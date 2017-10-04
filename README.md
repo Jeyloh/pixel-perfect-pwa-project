@@ -1,6 +1,6 @@
 
 ## My Pixel Perfect Project
-### By [Jørgen Lybeck Hansen](github.com/jeyloh)
+### By [Jørgen Lybeck Hansen](https://www.github.com/jeyloh)
 
 
 Running Node v. 6.11.3

@@ -39,37 +39,23 @@ class CourseList extends React.Component {
   }
 
   renderCourseView() {
-    let tabLinks = [];
-    let contentRoutes = [];
+    let tabLinks;
     const sessionsList = this.state.sessions;
 
-    /* TODO: this.state.sessions is the result from our promise, which access the API with sessions of course names and content.
-    I want to use a map function to target all names and add them as Tab Bars, and all the subject lists as content. I'm
-    almost doing it here but using a for loop is not optimal. Todo: Can I get help with a .map function to do what I'm trying?
-
-    I'm aware that the list for tabs and list for content shouldn't be in the same function. Noproblem splitting them as I
-    originally intended. This was just for the use with path names in react-router.
-     */
-    for (let i = 0; i < sessionsList.length; i++) {
-      log("LOOP Session, ", sessionsList[i]);
-      tabLinks.push(
-        <Link to={"/courses/" + sessionsList[i].name} className="tab" key={i}>{sessionsList[i].name}</Link>
-      )
-
-      sessionsList.map(function (sessions) {
-        contentRoutes.push(<Route path={"/courses/" + sessionsList[i].name} className="" key={i}
-                                  component={() => <TabContent name={sessionsList[i].name} content={sessions['subjects']}/>}/>)
-      });
-
-    }
+    tabLinks = sessionsList.map((session, i) => {
+      return <Link to={"/courses/" + session.name} className="tab" key={i}>{session.name}</Link>
+    });
     return (
       <div>
         <div className="tabBar">
           {tabLinks}
         </div>
-        <Switch>
-          {contentRoutes}
-        </Switch>
+        <Route path="/courses/:course" render={(e) => {
+          let session = sessionsList.filter((obj) => {
+            return obj.name === e.match.params.course
+          });
+          return <TabContent name={session[0].name} content={session[0].subjects} />
+        }}/>
       </div>
 
 
