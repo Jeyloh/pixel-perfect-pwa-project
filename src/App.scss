@@ -1,3 +1,8 @@
+$dark-color: #222;
+$white-color: white;
+$primary-color-1: #ff8b1b;
+$primary-color-2: #ffb800;
+
 html, body {
   font-family: 'Pacifico', 'Arial';
   height: 100%;
@@ -9,10 +14,10 @@ html, body {
   height: 100vh;
   width: 100vw;
   background: #ff8b1b; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #ff8b1b, #ffb800); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #ff8b1b, #ffb800); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #ff8b1b, #ffb800); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #ff8b1b, #ffb800); /* Standard syntax */
+  background: -webkit-linear-gradient(left top, $primary-color-1, $primary-color-2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, $primary-color-1, $primary-color-2); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, $primary-color-1, $primary-color-2); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, $primary-color-1, $primary-color-2); /* Standard syntax */
 
 
   .app-wrapper {
@@ -53,8 +58,8 @@ html, body {
 
           &:hover {
             font-size: 1.4em;
-            border-bottom: black solid 1px;
-            color: #6d6d6d;
+            border-bottom: $dark-color solid 1px;
+            color: $dark-color;
           }
         }
       }
@@ -69,29 +74,25 @@ html, body {
     /* NAVBAR */
     .navbar-wrapper {
       bottom: 0;
-      margin-bottom: 0;
-      background-color: black;
+      background-color: $dark-color;
       width: 100vw;
-      height: 15%;
+      height: 10%;
+      position: fixed;
+      z-index: 10;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
 
-      .app-navbar {
-        bottom: 0;
-        display: flex;
-        flex-wrap: wrap;
+      .nav-button{
+        color: white;
+        font-size: 1.6em;
+        background-size: 100%;
+        background: $dark-color url('./resources/svg-single/001__arrow_left.svg') no-repeat center;
+        flex-grow: 1;
+        width: 23%;
+        border: 1px solid #6d6d6d;
         height: 100%;
-        text-align: center;
-        z-index: 10;
-
-        .nav-button{
-          color: white;
-          font-size: 1.6em;
-          background-size: 100%;
-          background: black url('./resources/svg-single/001__arrow_left.svg') no-repeat center;
-          flex-grow: 1;
-          width: 23%;
-          border: 1px solid #6d6d6d;
-          height: 100%;
-        }
       }
     }
 
@@ -121,9 +122,12 @@ html, body {
   background: orange;
   border: 1px solid white;
   -webkit-transition: background .5s, width .5s;
-} .menu-button-main:hover {
-  background: rgba(255, 255, 255, 0.5);
-  width: 85%;
+
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    width: 85%
+  }
 }
 
 .App-logo {
@@ -149,12 +153,63 @@ html, body {
   to { transform: rotate(360deg); }
 }
 
-
-
 .mainContent {
   height: 70%;
   display: flex;
   justify-content: space-between;
+}
+
+.todo-list {
+  display: inline-block;
+  list-style: none;
+
+
+  .header {
+    animation: App-logo-spin infinite 10s linear;
+    margin-bottom: 100px;
+  }
+
+
+  li {
+    transition: all 200ms;
+
+    button {
+      padding: 5px;
+      margin: 5px;
+      cursor: pointer;
+      background: transparent;
+      border: solid 1px $white-color;
+      color: white;
+    }
+
+    &:hover {
+      font-size: 1.2em;
+    }
+  }
+}
+
+.input {
+  padding: 4% 8%;
+  margin: 20px 0;
+  width: 80%;
+  background: $white-color;
+  border: $primary-color-1 solid 2px;
+}
+
+.button {
+  padding: 4% 8%;
+  margin: 20px 0;
+  width: 80%;
+  text-align: center;
+  color: $white-color;
+  background: $primary-color-1;
+  border: 1px solid $white-color;
+  -webkit-transition: background .5s, width .5s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    width: 85%;
+  }
 }
 
 

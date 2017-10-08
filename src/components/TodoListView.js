@@ -8,9 +8,11 @@ const appState = observable({
   counter: 0,
   timer: 0
 });
-appState.resetTimer = action(function reset() {
+appState.resetTimer = action( () => {
   appState.timer = 0;
 })
+
+
 
 setInterval(action(function tick() {
   appState.timer += 1;
@@ -19,24 +21,48 @@ setInterval(action(function tick() {
 @observer
 class TodoListView extends Component {
 
-  onReset () {
+  onReset = () => {
     this.props.appState.resetTimer();
   }
 
-  renderTodos() {
+  handleChange = (event) => {
+    this.setState({[event.target.name]: event.target.value})
+    console.log(event.target.name, ": ", event.target.value);
+  }
+
+
+  renderTodos = () => {
     const todos = this.props.appState.todos;
     let temp = [];
 
-    for (let i = 0; i < todos; i++) {
-      temp.push(<h2>{i} item: { todos[i] }</h2>);
+    for (let i = 0; i < todos.length; i++) {
+      temp.push(
+          <li>
+            <button onClick={() => this.props.appState.removeItem(i)}>X</button>
+            #{i}: {todos[i]}
+          </li>
+      );
     }
-    return <div>{todos}</div>
+    if (temp.length > 0)
+      return temp;
+    else
+      return <p>Todolist is empty</p>
   }
+
 
   render() {
     return (
       <div className="content-wrapper">
-        <h1>First item: {this.props.appState.todos[0]}</h1>
+        <ul className="todo-list">
+          <h1 className="header">Todo list:</h1>
+          {this.renderTodos()}
+        </ul>
+        <input name="addTodo" className="input" onChange={this.handleChange} placeholder="Add todo" />
+        <button className="button" onClick={() => this.props.appState.add(this.state.addTodo)}>Add</button>
+
+
+        <h1>MobX'oClock: {appState.timer}</h1>
+        <button className="button" onClick={appState.resetTimer}>Reset clock</button>
       </div>
     )
   }

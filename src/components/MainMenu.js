@@ -9,7 +9,7 @@ class MainMenu extends React.Component {
           <h1>Main menu</h1>
           <Link to="/courses/" className="menu-button-main">Course List</Link>
           <Link to="/12" className="menu-button-main">MobX demo</Link>
-          <Link to="/123" className="menu-button-main">Main Menu</Link>
+          <Link to="/123" className="menu-button-main">Bluemix Translator</Link>
           <Link to="/1234" className="menu-button-main">BlueMix demo</Link>
         </div>
       </div>
