@@ -17,15 +17,15 @@ class TabContent extends React.Component {
   renderContent() {
     let temp = []
     for(let i=0; i < this.props.content.length; i++) {
-      temp.push(<li className="courseListItem">{this.props.content[i].name}</li>)
+      temp.push(<li className="courselist-item">{this.props.content[i].name}</li>)
     }
     return <span>{temp}</span>
   }
   render() {
     return(
       <div>
-        <h1>{this.props.name}</h1>
-        <ul className="tabContent">
+        <h1 className="tabcontent-header">{this.props.name}</h1>
+        <ul className="tab-content">
           { this.renderContent() }
         </ul>
       </div>

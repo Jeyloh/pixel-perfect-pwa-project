@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import AlertContainer from 'react-alert'
 
 
 class BlueMix extends Component {
@@ -14,14 +13,7 @@ class BlueMix extends Component {
   }
 
   componentDidMount() {
-    this.showAlert("This feature is not available yet", "error");
-  }
-
-  showAlert = (msg, type) => {
-    this.msg.show(msg, {
-      time: 5000,
-      type: type
-    })
+    //this.props.showAlert("This feature is not available yet", "error");
   }
 
   translateEnEs = (event) => {
@@ -48,25 +40,18 @@ class BlueMix extends Component {
 
   render() {
     return (
-      <div className="content-wrapper">
+      <div>
         <input onChange={this.translateEnEs} name="english" />
         <h2>{this.state.spanish}</h2>
-        <AlertContainer ref={a => this.msg = a} {...alertOptions} />
 
       </div>
     );
   }
 }
 
-BlueMix.propTypes = {};
+BlueMix.propTypes = {
+  showAlert: PropTypes.func
+};
 BlueMix.defaultProps = {};
 
 export default BlueMix;
-
-const alertOptions = {
-  offset: 80,
-  position: 'bottom right',
-  theme: 'dark',
-  time: 0,
-  transition: 'fade'
-}

@@ -25,4 +25,3 @@ autorun(() => {
   console.log(store.filter);
   console.log(store.todos[0]);
 })
-

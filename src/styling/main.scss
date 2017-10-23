@@ -1,1 +1,246 @@
+$dark-color: #2e2e2e;
+$white-color: white;
+$primary-color-1: #ff8b1b;
+$primary-color-2: #ffb800;
+$primary-gradient-1: linear-gradient(to bottom right, $primary-color-1, $primary-color-2);
+$main-content-height: 70%;
+$header-height: 15%;
+$navbar-height: 15%;
+
+html, body {
+  font-family: 'Nunito', 'Pacifico', 'Arial';
+  height: 100%;
+  margin: 0;
+  color: $white-color;
+  font-size: 1vw;
+  fill: currentColor;
+}
+svg {
+  color: $white-color;
+  fill: currentColor;
+}
+
+
+.app-background {
+  height: 100vh;
+  width: 100vw;
+  background: #ff8b1b; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, $primary-color-1, $primary-color-2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, $primary-color-1, $primary-color-2); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, $primary-color-1, $primary-color-2); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, $primary-color-1, $primary-color-2); /* Standard syntax */
+
+
+  .app-wrapper {
+    height: 100%;
+
+    .header-wrapper {
+      text-align: center;
+      background-color: $dark-color;
+      height: 10%;
+      padding: 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+
+      .header-content {
+        align-self: flex-start;
+
+        h2 {
+          font-family: 'Pacifico';
+        }
+      }
+
+      .back-button {
+        display: block;
+        color: white;
+        background: orange url('./resources/icons-svg/002-back.svg') no-repeat center;
+        background-size: 60%;
+        padding: 30px;
+        transition: padding .2s;
+      }.back-button:hover {padding:40px;}
+
+
+
+    }
+
+    .content-wrapper {
+      height: 70%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      padding: 0 20%;
+      color: white;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 5px;
+      transition: height 2s;
+
+      .tabBar {
+        display: flex;
+        justify-content: space-between;
+        .tab {
+          color: white;
+          padding: 5px;
+          border-bottom: white solid 1px;
+          transition: all 200ms;
+
+          &:hover {
+            font-size: 1.4em;
+            border-bottom: $dark-color solid 1px;
+            color: $dark-color;
+          }
+        }
+      }
+      .tabContent {
+
+        .courseListItem {
+
+        }
+      }
+    }
+
+    /* NAVBAR */
+    .navbar-wrapper {
+      bottom: 0;
+      background-color: $primary-color-2;
+      box-shadow: 0 -5px 5px -5px $dark-color;
+      width: 100vw;
+      height: 10%;
+      position: fixed;
+      z-index: 10;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      overflow: visible;
+
+      .nav-button{
+        display: block;
+        color: $dark-color;
+        fill: currentColor;
+        font-size: 1.6em;
+        flex-grow: 1;
+        width: 15%;
+        //border-left: 1px solid $dark-color;
+        //border-right: 1px solid $dark-color;
+        height: 100%;
+        transition: all 200ms;
+
+        &:hover {
+          width: 19%;
+        }
+        .center-icon {
+
+        }
+        .nav-icon {
+
+        }
+      }
+    }
+
+
+  }
+}
+
+
+
+
+.menu-button-main {
+  padding: 10px 20px;
+  margin: 20px 0;
+  width: 80%;
+  text-align: center;
+  color: $dark-color;
+  background: orange;
+  border: 1px solid $dark-color;
+  -webkit-transition: background .5s, width .5s;
+
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    width: 85%
+  }
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.mainContent {
+  height: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-list {
+  display: inline-block;
+  list-style: none;
+  padding: 30px 0;
+
+
+  .header {
+    animation: App-logo-spin infinite 10s linear;
+    margin-bottom: 100px;
+  }
+
+
+  li {
+    transition: all 200ms;
+
+    button {
+      padding: 5px;
+      margin: 5px;
+      cursor: pointer;
+      background: transparent;
+      border: solid 1px $dark-color;
+      color: $dark-color;
+    }
+
+    &:hover {
+      font-size: 1.2em;
+    }
+  }
+}
+
+.input {
+  padding: 4% 8%;
+  margin: 20px 0;
+  width: 80%;
+  background: $white-color;
+  border: $primary-color-1 solid 2px;
+}
+
+.button {
+  padding: 4% 8%;
+  margin: 20px 0;
+  width: 80%;
+  text-align: center;
+  color: $dark-color;
+  background: $primary-color-1;
+  border: 1px solid $dark-color;
+  -webkit-transition: background .5s, width .5s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    width: 85%;
+  }
+}
+
 

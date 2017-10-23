@@ -47,7 +47,7 @@ class CourseList extends React.Component {
     });
     return (
       <div>
-        <div className="tabBar">
+        <div className="tab-bar">
           {tabLinks}
         </div>
         <Route path="/courses/:course" render={(e) => {
@@ -66,7 +66,7 @@ class CourseList extends React.Component {
 
     log("Render");
     return(
-      <div className="content-wrapper">
+      <div className="tab-container">
         <h1>Course List</h1>
         { this.state.sessions.length >= 1 ?
           this.renderCourseView()

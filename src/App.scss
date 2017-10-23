@@ -6,23 +6,33 @@ $primary-gradient-1: linear-gradient(to bottom right, $primary-color-1, $primary
 $main-content-height: 70%;
 $header-height: 15%;
 $navbar-height: 15%;
+$navbar-svg-size: 4vw;
+$navbar-svg-size-mobile: 8vw;
 
+* {
+  box-sizing: border-box;
+}
 html, body {
   font-family: 'Nunito', 'Pacifico', 'Arial';
-  height: 100%;
+  padding: 0;
   margin: 0;
   color: $white-color;
-  fill: currentColor;
-}
-svg {
-  color: $white-color;
+  font-size: 14px;
   fill: currentColor;
 }
 
+// CSS GRID
 
-.app-background {
-  height: 100vh;
+#app-wrapper {
+  display: grid;
   width: 100vw;
+  height: 100vh;
+  grid-template-areas:  "head head head"
+                        "main main main"
+                        "nav  nav  nav";
+  grid-template-rows: 1fr 10fr 1fr;
+  grid-template-columns: 2fr 3fr 2fr;
+
   background: #ff8b1b; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left top, $primary-color-1, $primary-color-2); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(bottom right, $primary-color-1, $primary-color-2); /* For Opera 11.1 to 12.0 */
@@ -30,137 +40,288 @@ svg {
   background: linear-gradient(to bottom right, $primary-color-1, $primary-color-2); /* Standard syntax */
 
 
-  .app-wrapper {
-    height: 100%;
+  .header-wrapper {
+    grid-area: head;
+    grid-row: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    text-align: center;
+    background-color: $dark-color;
+    padding: 20px;
+    color: white;
 
-    .header-wrapper {
-      text-align: center;
-      background-color: $dark-color;
-      height: 10%;
-      padding: 20px;
-      color: white;
+
+    .header-nav {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-direction: row;
+      .header-title {
+        text-transform: capitalize;
 
-      .header-content {
-        align-self: flex-start;
-
-        h2 {
-          font-family: 'Pacifico';
-        }
+        font-size: 32px;
       }
-
       .back-button {
-        display: block;
+        height: 60px;
+        width: 60px;
+        padding: 10px;
+        margin: 20px;
         color: white;
         background: orange url('./resources/icons-svg/002-back.svg') no-repeat center;
         background-size: 60%;
-        padding: 30px;
         transition: padding .2s;
       }.back-button:hover {padding:40px;}
-
-
-
     }
 
-    .content-wrapper {
-      height: 70%;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      padding: 0 20%;
-      color: white;
+    .lybeck-logo {
+      position: absolute;
+      display: block;
+      right: 50px;
+      font-family: 'Pacifico';
+      margin: 0;
+      line-height: 1em;
+      font-size: 22px;
+      animation: App-logo-spin infinite 20s linear;
+      border: 1px solid $white-color;
+      border-radius: 50px;
+      width: 50px;
+      height:50px;
+    }
+
+
+  }
+
+  .content-wrapper {
+    grid-area: main;
+    grid-row: 2/2;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 5vh 20vw;
+    border-radius: 5px;
+    transition: height 2s;
+
+    .menu-container {
       display: flex;
       align-items: center;
       flex-direction: column;
-      border-radius: 5px;
-      transition: height 2s;
 
-      .tabBar {
+      h1 {
+        font-size: 8vw;
+        color: $white-color;
+        margin: 10px 0;
+      }
+      .menu-button-main {
+        padding: 2vh 2vw;
+        margin: 1em 0;
+        width: 90%;
+        text-align: center;
+        background: orange;
+        font-size: 2vw;
+        border: 1px solid $white-color;
+        color: $white-color;
+        -webkit-transition: background .5s, width .5s;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.5);
+          width: 95%
+        }
+      }
+    }
+
+    .tab-container {
+
+      .tab-bar{
         display: flex;
         justify-content: space-between;
         .tab {
+          text-decoration: none;
           color: white;
           padding: 5px;
           border-bottom: white solid 1px;
           transition: all 200ms;
+          font-size: 2.5vw;
 
           &:hover {
-            font-size: 1.4em;
+            font-size: 3vw;
             border-bottom: $dark-color solid 1px;
             color: $dark-color;
           }
         }
       }
-      .tabContent {
+    }
 
-        .courseListItem {
+    .tabcontent-header {
+      font-size: 4vw;
+    }
+    .tab-content {
+      .courselist-item {
+        font-size: 2vw;
 
-        }
       }
     }
 
-    /* NAVBAR */
-    .navbar-wrapper {
-      bottom: 0;
-      background-color: $primary-color-2;
-      box-shadow: 0 -5px 5px -5px $dark-color;
-      width: 100vw;
-      height: 10%;
-      position: fixed;
-      z-index: 10;
-      text-align: center;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      overflow: visible;
 
-      .nav-button{
-        display: block;
-        color: $dark-color;
-        fill: currentColor;
-        font-size: 1.6em;
-        flex-grow: 1;
-        width: 15%;
-        //border-left: 1px solid $dark-color;
-        //border-right: 1px solid $dark-color;
-        height: 100%;
-        transition: all 200ms;
+    .todo-list-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      justify-items: center;
+      align-items: center;
+
+      .todo-list {
+        list-style: none;
+        padding: 30px 0;
+        .todo-header {
+          font-size: 4vw;
+          margin-bottom: 20px;
+        }
+
+        li {
+          transition: all 200ms;
+          border-bottom: white solid 1px;
+          display: flex;
+          align-items: center;
+
+          button {
+            padding: 3px 5px;
+            margin: 10px 5px;
+            cursor: pointer;
+            background: transparent;
+            border: solid 1px $white-color;
+            color: $white-color;
+          }
+
+          &:hover {
+            font-size: 1.2em;
+          }
+        }
+      }
+      .todo-input {
+        padding: 4% 8%;
+        margin: 20px 0;
+        width: 100%;
+        background: $white-color;
+        border: $primary-color-1 solid 2px;
+      }
+
+      .todo-button {
+        padding: 2% 8%;
+        margin: 20px 0;
+        width: 100%;
+        text-align: center;
+        color: $white-color;
+        background: $primary-color-1;
+        border: 1px solid $white-color;
+        -webkit-transition: background .5s, width .5s;
 
         &:hover {
-          width: 19%;
-        }
-        .center-icon {
-
-        }
-        .nav-icon {
-
+          background: rgba(255, 255, 255, 0.5);
         }
       }
+      h1 {
+        font-size: 4vw;
+      }
     }
+  }
 
+  /* NAVBAR */
+  .navbar-wrapper {
+    grid-area: nav;
+    grid-row: 3/3;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: $primary-color-2;
+    box-shadow: 0 -5px 5px -5px $dark-color;
+    z-index: 500;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: visible;
 
+    .nav-button{
+      display: block;
+      color: $dark-color;
+      fill: currentColor;
+      font-size: 1.6em;
+      flex-grow: 1;
+      width: 15%;
+      //border-left: 1px solid $dark-color;
+      //border-right: 1px solid $dark-color;
+      height: 100%;
+      transition: all 200ms;
+
+      &:hover {
+        background-size: calc(#{$navbar-svg-size} * 2)
+      }
+
+    }
+    .gym {
+      background: url("./resources/icons-svg/025-gym.svg") no-repeat center;
+      background-size: $navbar-svg-size;
+
+    }
+    .archive {
+      background: url("./resources/icons-svg/011-folder-1.svg") no-repeat center;
+      background-size: $navbar-svg-size;
+    }
+    .basketball {
+      background: url("./resources/icons-svg/028-ball-of-basketball.svg") no-repeat center;
+      background-size: calc(#{$navbar-svg-size} * 1.5)
+    }
+    .settings {
+      background: url("./resources/icons-svg/009-interface.svg") no-repeat center;
+      background-size: $navbar-svg-size;
+    }
+    .user {
+      background: url("./resources/icons-svg/021-user.svg") no-repeat center;
+      background-size: $navbar-svg-size;
+    }
   }
 }
 
 
 
+@media screen and (max-width: 770px) {
+  body {
+    font-size: 1.6em;
 
-.menu-button-main {
-  padding: 10px 20px;
-  margin: 20px 0;
-  width: 80%;
-  text-align: center;
-  color: $dark-color;
-  background: orange;
-  border: 1px solid $dark-color;
-  -webkit-transition: background .5s, width .5s;
+    #app-wrapper {
+      .content-wrapper {
+        .menu-container {
+          .menu-button-main {
+            font-size: 4vw;
+          }
+        }
+      }
 
+      .navbar-wrapper {
+        background: $dark-color;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.5);
-    width: 85%
+        .nav-button {
+          &:hover {
+            background-size: calc(#{$navbar-svg-size-mobile} * 2)
+          }
+        }
+        .gym {
+          background-size: $navbar-svg-size-mobile;
+        }
+        .archive {
+          background-size: $navbar-svg-size-mobile;
+        }
+        .basketball {
+          background-size: calc(#{$navbar-svg-size-mobile} * 1.5)
+        }
+        .settings {
+          background-size: $navbar-svg-size-mobile;
+        }
+        .user {
+          background-size: $navbar-svg-size-mobile;
+        }
+      }
+    }
   }
 }
 
@@ -169,77 +330,7 @@ svg {
   height: 80px;
 }
 
-.App-header {
-
-}
-
-.App-intro {
-  font-size: large;
-}
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.mainContent {
-  height: 70%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.todo-list {
-  display: inline-block;
-  list-style: none;
-  padding: 30px 0;
-
-
-  .header {
-    animation: App-logo-spin infinite 10s linear;
-    margin-bottom: 100px;
-  }
-
-
-  li {
-    transition: all 200ms;
-
-    button {
-      padding: 5px;
-      margin: 5px;
-      cursor: pointer;
-      background: transparent;
-      border: solid 1px $dark-color;
-      color: $dark-color;
-    }
-
-    &:hover {
-      font-size: 1.2em;
-    }
-  }
-}
-
-.input {
-  padding: 4% 8%;
-  margin: 20px 0;
-  width: 80%;
-  background: $white-color;
-  border: $primary-color-1 solid 2px;
-}
-
-.button {
-  padding: 4% 8%;
-  margin: 20px 0;
-  width: 80%;
-  text-align: center;
-  color: $dark-color;
-  background: $primary-color-1;
-  border: 1px solid $dark-color;
-  -webkit-transition: background .5s, width .5s;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.5);
-    width: 85%;
-  }
-}
-
-

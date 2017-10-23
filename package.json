@@ -1,7 +1,8 @@
 {
-  "name": "pixel-perfect-pwa-project",
+  "name": "strength-archive",
   "version": "0.1.0",
   "private": true,
+  "url": "https://github.com/Jeyloh/pixel-perfect-pwa-project",
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",

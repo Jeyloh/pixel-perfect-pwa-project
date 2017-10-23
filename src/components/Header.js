@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+  }
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  }
+
   render() {
+    const { match, location, history } = this.props
+    const title = location.pathname.replace("/", "").replace("-", " ");
+
     return (
       <header className="header-wrapper">
-        <Link to="/" className="back-button" />
-        <div className="header-content">
-          <h2>#LybeckDesign</h2>
+        <div className="header-nav">
+          <Link to="/" className="back-button" />
+          <h1 className="header-title">{ title }</h1>
         </div>
+        <h2 className="lybeck-logo">#Lybeck<br />Design</h2>
       </header>
     );
   }
 }
 
-export default Header;
+export default withRouter(Header);

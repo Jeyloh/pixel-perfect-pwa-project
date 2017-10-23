@@ -52,17 +52,15 @@ class TodoListView extends Component {
 
   render() {
     return (
-      <div className="content-wrapper">
+      <div className="todo-list-wrapper">
         <ul className="todo-list">
-          <h1 className="header">Todo list:</h1>
+          <h1 className="todo-header">Todo list:</h1>
           {this.renderTodos()}
         </ul>
-        <input name="addTodo" className="input" onChange={this.handleChange} placeholder="Add todo" />
-        <button className="button" onClick={() => this.props.appState.add(this.state.addTodo)}>Add</button>
-
-
+        <input name="addTodo" className="todo-input" onChange={this.handleChange} placeholder="Add todo" />
+        <button className="todo-button" onClick={() => this.props.appState.add(this.state.addTodo)}>Add</button>
         <h1>MobX'oClock: {appState.timer}</h1>
-        <button className="button" onClick={appState.resetTimer}>Reset clock</button>
+        <button className="todo-button" onClick={appState.resetTimer}>Reset clock</button>
       </div>
     )
   }
