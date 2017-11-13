@@ -18,11 +18,13 @@ class Header extends Component {
 
     return (
       <header className="header-wrapper">
-        <div className="header-nav">
-          <Link to="/" className="back-button" />
-          <h1 className="header-title">{ title }</h1>
+        <div className="header-content">
+          <div className="header-nav">
+            <Link to="/" className="back-button" />
+            <h1 className="header-title">{ title }</h1>
+          </div>
+          <h2 className="lybeck-logo">#Lybeck<br />Design</h2>
         </div>
-        <h2 className="lybeck-logo">#Lybeck<br />Design</h2>
       </header>
     );
   }

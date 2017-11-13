@@ -37,7 +37,7 @@ svg {
     .header-wrapper {
       text-align: center;
       background-color: $dark-color;
-      height: 10%;
+      height: 5%;
       padding: 20px;
       color: white;
       display: flex;
@@ -61,13 +61,10 @@ svg {
         padding: 30px;
         transition: padding .2s;
       }.back-button:hover {padding:40px;}
-
-
-
     }
 
     .content-wrapper {
-      height: 70%;
+      height: 90%;
       overflow-y: scroll;
       overflow-x: hidden;
       padding: 0 20%;
@@ -108,7 +105,7 @@ svg {
       background-color: $primary-color-2;
       box-shadow: 0 -5px 5px -5px $dark-color;
       width: 100vw;
-      height: 10%;
+      height: 5%;
       position: fixed;
       z-index: 10;
       text-align: center;

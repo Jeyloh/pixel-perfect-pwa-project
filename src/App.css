@@ -28,46 +28,47 @@ html, body {
   /* Standard syntax */
   /* NAVBAR */ }
   #app-wrapper .header-wrapper {
+    height: 100px;
     grid-area: head;
     grid-row: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    text-align: center;
-    background-color: #2e2e2e;
-    padding: 20px;
-    color: white; }
-    #app-wrapper .header-wrapper .header-nav {
+    background-color: #2e2e2e; }
+    #app-wrapper .header-wrapper .header-content {
       display: flex;
-      align-items: center; }
-      #app-wrapper .header-wrapper .header-nav .header-title {
-        text-transform: capitalize;
-        font-size: 32px; }
-      #app-wrapper .header-wrapper .header-nav .back-button {
-        height: 60px;
-        width: 60px;
-        padding: 10px;
-        margin: 20px;
-        color: white;
-        background: orange url("./resources/icons-svg/002-back.svg") no-repeat center;
-        background-size: 60%;
-        transition: padding .2s; }
-      #app-wrapper .header-wrapper .header-nav .back-button:hover {
-        padding: 40px; }
-    #app-wrapper .header-wrapper .lybeck-logo {
-      position: absolute;
-      display: block;
-      right: 50px;
-      font-family: 'Pacifico';
-      margin: 0;
-      line-height: 1em;
-      font-size: 22px;
-      animation: App-logo-spin infinite 20s linear;
-      border: 1px solid white;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px; }
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+      text-align: center;
+      color: white; }
+      #app-wrapper .header-wrapper .header-content .header-nav {
+        display: flex;
+        align-items: center; }
+        #app-wrapper .header-wrapper .header-content .header-nav .header-title {
+          text-transform: capitalize;
+          font-size: 32px; }
+        #app-wrapper .header-wrapper .header-content .header-nav .back-button {
+          height: 60px;
+          width: 60px;
+          padding: 10px;
+          margin: 20px;
+          color: white;
+          background: orange url("./resources/icons-svg/002-back.svg") no-repeat center;
+          background-size: 60%;
+          transition: padding .2s; }
+        #app-wrapper .header-wrapper .header-content .header-nav .back-button:hover {
+          background-color: white; }
+      #app-wrapper .header-wrapper .header-content .lybeck-logo {
+        position: absolute;
+        display: block;
+        right: 50px;
+        font-family: 'Pacifico';
+        margin: 0;
+        line-height: 1em;
+        font-size: 22px;
+        animation: App-logo-spin infinite 20s linear;
+        border: 1px solid white;
+        border-radius: 50px;
+        width: 50px;
+        height: 50px; }
   #app-wrapper .content-wrapper {
     grid-area: main;
     grid-row: 2/2;
@@ -163,44 +164,47 @@ html, body {
   #app-wrapper .navbar-wrapper {
     grid-area: nav;
     grid-row: 3/3;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
-    height: 100px;
+    height: 50px;
     background-color: #ffb800;
     box-shadow: 0 -5px 5px -5px #2e2e2e;
     z-index: 500;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     overflow: visible; }
-    #app-wrapper .navbar-wrapper .nav-button {
-      display: block;
-      color: #2e2e2e;
-      fill: currentColor;
-      font-size: 1.6em;
-      flex-grow: 1;
-      width: 15%;
-      height: 100%;
-      transition: all 200ms; }
-      #app-wrapper .navbar-wrapper .nav-button:hover {
-        background-size: calc(4vw * 2); }
-    #app-wrapper .navbar-wrapper .gym {
-      background: url("./resources/icons-svg/025-gym.svg") no-repeat center;
-      background-size: 4vw; }
-    #app-wrapper .navbar-wrapper .archive {
-      background: url("./resources/icons-svg/011-folder-1.svg") no-repeat center;
-      background-size: 4vw; }
-    #app-wrapper .navbar-wrapper .basketball {
-      background: url("./resources/icons-svg/028-ball-of-basketball.svg") no-repeat center;
-      background-size: calc(4vw * 1.5); }
-    #app-wrapper .navbar-wrapper .settings {
-      background: url("./resources/icons-svg/009-interface.svg") no-repeat center;
-      background-size: 4vw; }
-    #app-wrapper .navbar-wrapper .user {
-      background: url("./resources/icons-svg/021-user.svg") no-repeat center;
-      background-size: 4vw; }
+    #app-wrapper .navbar-wrapper .navbar-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      height: 100%; }
+      #app-wrapper .navbar-wrapper .navbar-content .nav-button {
+        display: block;
+        color: #2e2e2e;
+        fill: currentColor;
+        font-size: 1.6em;
+        flex-grow: 1;
+        width: 15%;
+        height: 100%;
+        transition: all 200ms; }
+        #app-wrapper .navbar-wrapper .navbar-content .nav-button:hover {
+          background-size: calc(6vw * 2); }
+      #app-wrapper .navbar-wrapper .navbar-content .gym {
+        background: url("./resources/icons-svg/025-gym.svg") no-repeat center;
+        background-size: 6vw; }
+      #app-wrapper .navbar-wrapper .navbar-content .archive {
+        background: url("./resources/icons-svg/011-folder-1.svg") no-repeat center;
+        background-size: 6vw; }
+      #app-wrapper .navbar-wrapper .navbar-content .basketball {
+        background: url("./resources/icons-svg/028-ball-of-basketball.svg") no-repeat center;
+        background-size: calc(6vw * 1.5); }
+      #app-wrapper .navbar-wrapper .navbar-content .settings {
+        background: url("./resources/icons-svg/009-interface.svg") no-repeat center;
+        background-size: 6vw; }
+      #app-wrapper .navbar-wrapper .navbar-content .user {
+        background: url("./resources/icons-svg/021-user.svg") no-repeat center;
+        background-size: 6vw; }
 
 @media screen and (max-width: 770px) {
   body {
