@@ -105,7 +105,8 @@ svg {
   color: #2e2e2e;
   background: orange;
   border: 1px solid #2e2e2e;
-  -webkit-transition: background .5s, width .5s; }
+  -webkit-transition: background .5s, width .5s;
+  text-decoration: none; }
   .menu-button-main:hover {
     background: rgba(255, 255, 255, 0.5);
     width: 85%; }

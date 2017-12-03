@@ -3,16 +3,17 @@ import logo from './../logo.svg';
 import '../styling/main.scss';
 import Navbar from './Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Spinner from 'react-spinkit';
 import DevTools from 'mobx-react-devtools'
 import AlertContainer from 'react-alert'
-
-import TodoListView from './TodoListView';
-import store from './../mobx/TodoStore';
+import { observer } from 'mobx-react'
+import { Routines } from './routines/';
 import Header from './Header';
 import MainMenu from './MainMenu';
 import CourseList from './CourseList';
 import BlueMix from './BlueMix';
 
+@observer // Makes the application an observer to MobX state @observables
 class App extends Component {
 
   componentDidMount() {
@@ -25,34 +26,38 @@ class App extends Component {
     })
   }
   render() {
+    const isLoading = false;
     return (
       <div>
         <Router>
           <div id="app-wrapper">
             <Header title="Tittel"/>
             <main className="content-wrapper">
-              <Switch>
-                <Route exact path="/" component={MainMenu} />
-                <Route path="/menu" component={MainMenu} />
-                <Route path="/courses/" component={CourseList} />
-                <Route path="/todo" component={() => (<TodoListView appState={store} /> )}/>
-                <Route path="/cutting-edge" component={() => (<BlueMix showAlert={this.showAlert} /> )}/>
-                <Route path="/archive" render = { () => {
-                  return <h1>Archive</h1>
-                }} />
-                <Route path="/settings" render = { () => {
-                  return <h1>Settings</h1>
-                }} />
-                <Route path="/routines" render = { () => {
-                  return <h1>Routines</h1>
-                }} />
-                <Route path="/profile" render = { () => {
-                  return <h1>User profile</h1>
-                }} />
-                <Route path="/404" render = { () => {
-                  return (<img src={logo} className="App-logo" alt="logo" />)
-                }} />
-              </Switch>
+              {isLoading ?
+                <Spinner name="folding-cube" color="white" />
+                :
+                <Switch>
+                  <Route exact path="/" component={MainMenu}/>
+                  <Route path="/menu" component={MainMenu}/>
+                  <Route path="/courses/" component={CourseList}/>
+                  <Route path="/routines/" component={(props) => (<Routines {...props} />)}/>
+                  <Route path="/routines/:routine?" component={(props) => (<Routines {...props} />)}/>
+                  <Route path="/routines/add" component={(props) => (<Routines {...props} />)}/>
+                  <Route path="/cutting-edge" component={() => (<BlueMix showAlert={this.showAlert}/> )}/>
+                  <Route path="/archive" render={() => {
+                    return <h1>Archive</h1>
+                  }}/>
+                  <Route path="/settings" render={() => {
+                    return <h1>Settings</h1>
+                  }}/>
+                  <Route path="/profile" render={() => {
+                    return <h1>User profile</h1>
+                  }}/>
+                  <Route path="/404" render={() => {
+                    return (<img src={logo} className="App-logo" alt="logo"/>)
+                  }}/>
+                </Switch>
+              }
             </main>
 
             <Navbar />

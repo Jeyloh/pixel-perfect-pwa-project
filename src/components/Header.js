@@ -12,6 +12,10 @@ class Header extends Component {
     history: PropTypes.object.isRequired
   }
 
+  goBack = () => {
+    this.props.history.goBack();
+  }
+
   render() {
     const { match, location, history } = this.props
     const title = location.pathname.replace("/", "").replace("-", " ");
@@ -20,7 +24,7 @@ class Header extends Component {
       <header className="header-wrapper">
         <div className="header-content">
           <div className="header-nav">
-            <Link to="/" className="back-button" />
+            <a onClick={() => this.goBack()} className="back-button" />
             <h1 className="header-title">{ title }</h1>
           </div>
           <h2 className="lybeck-logo">#Lybeck<br />Design</h2>

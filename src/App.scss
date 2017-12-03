@@ -122,6 +122,7 @@ html, body {
         border: 1px solid $white-color;
         color: $white-color;
         -webkit-transition: background .5s, width .5s;
+        text-decoration: none;
 
         &:hover {
           background: rgba(255, 255, 255, 0.5);
@@ -288,6 +289,14 @@ html, body {
       }
     }
   }
+}
+
+.sa-input {
+  padding: 4% 8%;
+  margin: 20px 0;
+  width: 100%;
+  background: $white-color;
+  border: $primary-color-1 solid 2px;
 }
 
 

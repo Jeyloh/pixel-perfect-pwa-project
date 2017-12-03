@@ -94,7 +94,8 @@ html, body {
         font-size: 2vw;
         border: 1px solid white;
         color: white;
-        -webkit-transition: background .5s, width .5s; }
+        -webkit-transition: background .5s, width .5s;
+        text-decoration: none; }
         #app-wrapper .content-wrapper .menu-container .menu-button-main:hover {
           background: rgba(255, 255, 255, 0.5);
           width: 95%; }
@@ -205,6 +206,13 @@ html, body {
       #app-wrapper .navbar-wrapper .navbar-content .user {
         background: url("./resources/icons-svg/021-user.svg") no-repeat center;
         background-size: 6vw; }
+
+.sa-input {
+  padding: 4% 8%;
+  margin: 20px 0;
+  width: 100%;
+  background: white;
+  border: #ff8b1b solid 2px; }
 
 @media screen and (max-width: 770px) {
   body {
