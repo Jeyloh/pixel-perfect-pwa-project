@@ -17,6 +17,7 @@ const isLocalhost = Boolean(
       /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
     )
 );
+const applicationServerPublicKey = "BAuV55GLDA29SNSyKNNwgSRI_n4W750FsLeAqg8qdSrWL0QQe5WLpSfvoQ2IXi1XgPozLYm8EOC-g5pQ7jxRT0k"
 
 export default function register() {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
@@ -66,9 +67,41 @@ function registerValidSW(swUrl) {
           }
         };
       };
+      subscribeUser(registration);
     })
     .catch(error => {
       console.error('Error during service worker registration:', error);
+    });
+}
+
+function urlB64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding)
+    .replace(/\-/g, '+')
+    .replace(/_/g, '/');
+
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
+}
+
+function subscribeUser(swRegistration) {
+  // https://developers.google.com/web/fundamentals/codelabs/push-notifications/
+  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+  swRegistration.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: applicationServerKey
+  })
+    .then(function(subscription) {
+      console.log('User is subscribed.', subscription);
+
+    })
+    .catch(function(err) {
+      console.log('Failed to subscribe the user: ', err);
     });
 }
 

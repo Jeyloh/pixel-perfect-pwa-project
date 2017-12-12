@@ -1,12 +1,8 @@
 import React from 'react';
-import { Link , Route, Switch } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 import { observer } from 'mobx-react'
 import _ from 'lodash';
 
-import {Routine} from './Routine'
-
-
-const log = (...args) => console.log('[Routines.Component]', ...args)
 
 @observer
 export class RoutineList extends React.Component {

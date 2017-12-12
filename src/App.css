@@ -1,3 +1,14 @@
+.routine-container {
+  padding: 15px; }
+
+.exerciseContainer {
+  width: 100%;
+  background: #2e2e2e;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 3px;
+  box-shadow: 2px 8px 3px rgba(20, 20, 20, 0.35); }
+
 * {
   box-sizing: border-box; }
 
@@ -38,7 +49,8 @@ html, body {
       justify-content: space-between;
       flex-direction: row;
       text-align: center;
-      color: white; }
+      color: white;
+      overflow: hidden; }
       #app-wrapper .header-wrapper .header-content .header-nav {
         display: flex;
         align-items: center; }
@@ -63,7 +75,7 @@ html, body {
         font-family: 'Pacifico';
         margin: 0;
         line-height: 1em;
-        font-size: 22px;
+        font-size: 18px;
         animation: App-logo-spin infinite 20s linear;
         border: 1px solid white;
         border-radius: 50px;
@@ -74,7 +86,7 @@ html, body {
     grid-row: 2/2;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 5vh 20vw;
+    padding: 5vh 15vw;
     border-radius: 5px;
     transition: height 2s; }
     #app-wrapper .content-wrapper .menu-container {
@@ -90,15 +102,14 @@ html, body {
         margin: 1em 0;
         width: 90%;
         text-align: center;
-        background: orange;
+        background: #2e2e2e;
         font-size: 2vw;
         border: 1px solid white;
         color: white;
         -webkit-transition: background .5s, width .5s;
         text-decoration: none; }
         #app-wrapper .content-wrapper .menu-container .menu-button-main:hover {
-          background: rgba(255, 255, 255, 0.5);
-          width: 95%; }
+          background: rgba(255, 160, 9, 0.9); }
     #app-wrapper .content-wrapper .tab-container .tab-bar {
       display: flex;
       justify-content: space-between; }
@@ -184,55 +195,44 @@ html, body {
         display: block;
         color: #2e2e2e;
         fill: currentColor;
-        font-size: 1.6em;
         flex-grow: 1;
         width: 15%;
         height: 100%;
         transition: all 200ms; }
         #app-wrapper .navbar-wrapper .navbar-content .nav-button:hover {
-          background-size: calc(6vw * 2); }
+          background-size: calc(24px * 2); }
       #app-wrapper .navbar-wrapper .navbar-content .gym {
         background: url("./resources/icons-svg/025-gym.svg") no-repeat center;
-        background-size: 6vw; }
+        background-size: 24px; }
       #app-wrapper .navbar-wrapper .navbar-content .archive {
         background: url("./resources/icons-svg/011-folder-1.svg") no-repeat center;
-        background-size: 6vw; }
+        background-size: 24px; }
       #app-wrapper .navbar-wrapper .navbar-content .basketball {
         background: url("./resources/icons-svg/028-ball-of-basketball.svg") no-repeat center;
-        background-size: calc(6vw * 1.5); }
+        background-size: calc(24px * 1.5); }
       #app-wrapper .navbar-wrapper .navbar-content .settings {
         background: url("./resources/icons-svg/009-interface.svg") no-repeat center;
-        background-size: 6vw; }
+        background-size: 24px; }
       #app-wrapper .navbar-wrapper .navbar-content .user {
         background: url("./resources/icons-svg/021-user.svg") no-repeat center;
-        background-size: 6vw; }
+        background-size: 24px; }
 
 .sa-input {
   padding: 4% 8%;
-  margin: 20px 0;
+  margin: 10px 0;
   width: 100%;
   background: white;
   border: #ff8b1b solid 2px; }
+
+@media screen and (max-width: 1100px) {
+  body #app-wrapper .navbar-wrapper {
+    background: #2e2e2e; } }
 
 @media screen and (max-width: 770px) {
   body {
     font-size: 1.6em; }
     body #app-wrapper .content-wrapper .menu-container .menu-button-main {
-      font-size: 4vw; }
-    body #app-wrapper .navbar-wrapper {
-      background: #2e2e2e; }
-      body #app-wrapper .navbar-wrapper .nav-button:hover {
-        background-size: calc(8vw * 2); }
-      body #app-wrapper .navbar-wrapper .gym {
-        background-size: 8vw; }
-      body #app-wrapper .navbar-wrapper .archive {
-        background-size: 8vw; }
-      body #app-wrapper .navbar-wrapper .basketball {
-        background-size: calc(8vw * 1.5); }
-      body #app-wrapper .navbar-wrapper .settings {
-        background-size: 8vw; }
-      body #app-wrapper .navbar-wrapper .user {
-        background-size: 8vw; } }
+      font-size: 4vw; } }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

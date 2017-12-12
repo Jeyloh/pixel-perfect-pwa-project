@@ -36,7 +36,7 @@ export class NewRoutine extends React.Component {
   render () {
     return (
       <div className="menu-container">
-        <form onSubmit={(e) => this.addRoutine(e)}>
+        <form className="routine-container" onSubmit={(e) => this.addRoutine(e)}>
           <h1>Add new routine</h1>
           <input onChange={(e) => this.handleChange(e) } name="name" className="sa-input" placeholder="Routine Name" />
           <input onChange={(e) => this.handleChange(e) } name="ex1" className="sa-input" placeholder="Exercise 1" />

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link , Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {routines } from '../../mobx/stores/routines.store'
-import { observer } from 'mobx-react'
 import _ from 'lodash';
 
 
@@ -13,22 +12,27 @@ export class Routine extends React.Component {
     routines.del(id)
   };
 
+  renderRoutineDays = () => {
+    let days = [];
+
+    _.map(this.props.routines.json, (it) => {
+      _.map(it.routine.days, (day, key) => {
+        days.push(
+          <Link to={`/routines/${it.routine.name}/` + key}
+                key={key}
+                className="menu-button-main">{key}
+          </Link>
+        )
+      })
+    })
+    return days;
+  }
+
   render() {
     return (
       <div className="menu-container">
         <h1>{this.props.routines.routine.name}</h1>
-        <ul>
-          {/*{_.map(this.props.routines.routine.exercises, (it, key) => (*/}
-            {/*<li onClick={ () => {console.log(it.routine.name)}}*/}
-                  {/*key={key} >*/}
-              {/*{it.ex1}*/}
-            {/*</li>*/}
-          {/*))}*/}
-          <li>{this.props.routines.routine.exercises.ex1}</li>
-          <li>{this.props.routines.routine.exercises.ex2}</li>
-          <li>{this.props.routines.routine.exercises.ex3}</li>
-        </ul>
-
+        { this.renderRoutineDays()}
       </div>
     )
   }

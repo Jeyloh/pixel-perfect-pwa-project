@@ -5,7 +5,7 @@ import { map, toJS } from 'mobx'
 class Routines {
   @observable routines = map({});
   @observable routine = {
-    name: "531",
+    name: "Upper Lower",
     exercises: {
       ex1: "Squat 5x5",
       ex2: "Benchpress 5x5",
@@ -17,6 +17,7 @@ class Routines {
     fb.routines.on('value' , (snapshot) => {
       this.routines = snapshot.val();
     });
+
   }
 
   @computed get json() {

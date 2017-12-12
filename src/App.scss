@@ -6,8 +6,9 @@ $primary-gradient-1: linear-gradient(to bottom right, $primary-color-1, $primary
 $main-content-height: 70%;
 $header-height: 15%;
 $navbar-height: 15%;
-$navbar-svg-size: 6vw;
-$navbar-svg-size-mobile: 8vw;
+$navbar-svg-size: 24px;
+
+@import 'styling/routine';
 
 * {
   box-sizing: border-box;
@@ -53,6 +54,7 @@ html, body {
       flex-direction: row;
       text-align: center;
       color: white;
+      overflow: hidden;
 
       .header-nav {
         display: flex;
@@ -80,7 +82,7 @@ html, body {
         font-family: 'Pacifico';
         margin: 0;
         line-height: 1em;
-        font-size: 22px;
+        font-size: 18px;
         animation: App-logo-spin infinite 20s linear;
         border: 1px solid $white-color;
         border-radius: 50px;
@@ -98,7 +100,7 @@ html, body {
     grid-row: 2/2;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 5vh 20vw;
+    padding: 5vh 15vw;
     border-radius: 5px;
     transition: height 2s;
 
@@ -117,16 +119,15 @@ html, body {
         margin: 1em 0;
         width: 90%;
         text-align: center;
-        background: orange;
+        background: $dark-color;
         font-size: 2vw;
-        border: 1px solid $white-color;
+        border: 1px solid white;
         color: $white-color;
         -webkit-transition: background .5s, width .5s;
         text-decoration: none;
 
         &:hover {
-          background: rgba(255, 255, 255, 0.5);
-          width: 95%
+          background: rgba(255, 160, 9, .9);
         }
       }
     }
@@ -253,7 +254,6 @@ html, body {
         display: block;
         color: $dark-color;
         fill: currentColor;
-        font-size: 1.6em;
         flex-grow: 1;
         width: 15%;
         //border-left: 1px solid $dark-color;
@@ -293,7 +293,7 @@ html, body {
 
 .sa-input {
   padding: 4% 8%;
-  margin: 20px 0;
+  margin: 10px 0;
   width: 100%;
   background: $white-color;
   border: $primary-color-1 solid 2px;
@@ -301,6 +301,16 @@ html, body {
 
 
 
+@media screen and (max-width: 1100px) {
+  body {
+    #app-wrapper {
+      .navbar-wrapper {
+        background: $dark-color;
+
+    }
+    }
+  }
+}
 @media screen and (max-width: 770px) {
   body {
     font-size: 1.6em;
@@ -311,31 +321,6 @@ html, body {
           .menu-button-main {
             font-size: 4vw;
           }
-        }
-      }
-
-      .navbar-wrapper {
-        background: $dark-color;
-
-        .nav-button {
-          &:hover {
-            background-size: calc(#{$navbar-svg-size-mobile} * 2)
-          }
-        }
-        .gym {
-          background-size: $navbar-svg-size-mobile;
-        }
-        .archive {
-          background-size: $navbar-svg-size-mobile;
-        }
-        .basketball {
-          background-size: calc(#{$navbar-svg-size-mobile} * 1.5)
-        }
-        .settings {
-          background-size: $navbar-svg-size-mobile;
-        }
-        .user {
-          background-size: $navbar-svg-size-mobile;
         }
       }
     }
